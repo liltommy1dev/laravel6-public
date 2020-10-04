@@ -10,9 +10,8 @@ else
 fi
 
 # 引数の取得
-MysqlRootPasswd=$1
-MysqlDBName=$2
-
+MysqlDBName=$1
+MysqlRootPasswd=$2
 
 
 ##
@@ -157,7 +156,7 @@ cp -p .env.example .env
 php artisan key:generate
 
 # .envにDB名を設定
-sed -i -e "s/DB_DATABASE=laravel/DB_PASSWORD=${MysqlDBName}/g" .env
+sed -i -e "s/DB_DATABASE=laravel/DB_DATABASE=${MysqlDBName}/g" .env
 # .envにDBパスワード設定
 sed -i -e "s/DB_PASSWORD=/DB_PASSWORD=${MysqlRootPasswd}/g" .env
 
